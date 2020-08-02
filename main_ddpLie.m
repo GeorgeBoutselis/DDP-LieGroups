@@ -76,6 +76,8 @@ par_ddp = struct('horizon', horizon, 'g0', g0, 'xi0', xi0, 'g_des', g_des, ...
 
 %% ddp
 
+disp('1st + 2nd order dynamics approximations:')
+
 options_d.iter = 300;  % maximum number of iterations
 options_d.gamma0 = 1;  % initial line search parameter
 options_d.gammachange = 1/3;  % decrease ratio for line search condition
@@ -95,8 +97,11 @@ u_bar = zeros(n_u, horizon - 1);  % nominal control sequence
                             ddpLie_fun(u_bar,par_dyn,par_ddp,options_d);
 quat_ddp =  rotm2quat(g_ddp)';
 quat_des = rotm2quat(g_des);
+disp('........................................................')
 
 %% only 1st order
+
+disp('1st order dynamics approximations:')
 
 options_d.orderchange = 0;
 u_bar = zeros(n_u, horizon - 1);  % nominal control sequence
@@ -104,8 +109,11 @@ u_bar = zeros(n_u, horizon - 1);  % nominal control sequence
 [g_ddp1, xi_ddp1, u_ddp1, S_ddp1, u_bars1, J1] = ...
                             ddpLie_fun(u_bar,par_dyn,par_ddp,options_d);
 quat_ddp1 =  rotm2quat(g_ddp1)';
+disp('........................................................')
 
 %% only 2nd order
+
+disp('2nd order dynamics approximations:')
 
 options_d.order = 2;
 u_bar = zeros(n_u, horizon - 1);  % nominal control sequence
@@ -113,6 +121,7 @@ u_bar = zeros(n_u, horizon - 1);  % nominal control sequence
 [g_ddp2, xi_ddp2, u_ddp2, S_ddp2, u_bars2, J2] = ...
                             ddpLie_fun(u_bar,par_dyn,par_ddp,options_d);
 quat_ddp2 =  rotm2quat(g_ddp2)';
+disp('........................................................')
 
 %% plots
 
