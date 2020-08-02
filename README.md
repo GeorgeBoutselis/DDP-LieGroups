@@ -1,6 +1,3 @@
-# DDP-LieGroups
-
-
 <snippet>
   <content><![CDATA[
 # ${1:Differential Dynamic Programming on Lie groups}
