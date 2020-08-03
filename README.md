@@ -4,7 +4,7 @@ Implementation of the geometric version of Differential Dynamic Programming (DDP
 
 ### Prerequisites
 
-The scripts were tested on MATLAB R2016a.
+The scripts were tested on MATLAB R2016a. The Robotics System Toolbox is used to convert rotation matrices to unit quaternions (for plotting purposes only).
 
 ### Usage
 
